@@ -26,16 +26,16 @@ class: center, middle
 ##### CSNW Annual Meeting 2015
 ##### Colorado Springs, CO
 
-The [repo](https://github.com/benracine/energy-simplicit) for this presentation.
+[Presentation Source Repo](https://github.com/benracine/energy-simplicity) 
 
 ---
 
-# What __IS__ a "passive solar" home?
+# Passive Solar Home **Form**
 
 A passive solar home is a physical object that is the result of a construction process that takes resources and creates a space with conditions that someone desires to dwell in.
 
-```
-var wood = {'name': 'wood', 'quantity': 'a smidge', 'cost': 'more than the old days'};
+```javascript
+var wood = {'name': 'wood', 'quantity': 'a smidge', 'cost': 'more than ever'};
 var glass = {'name': 'glass', 'quantity': 'a smidge', 'cost': 'get a loan'};
 var insulation = {
   'name': 'insulation',
@@ -52,11 +52,32 @@ var passive_solar_home = (function constructHome(res) {
 
 ---
 
+# Passive Solar Home **Form**
 
-# What __DOES__ a "passive solar" home do?
+While a fully optimized passive solar house is a super complex topic, a few key traits do seem to surface for most sites and geolocations.
 
-The ambient environmental conditions are a multi-variate time series:
-<code class="remark-code" style="font-size: 12px;">
+- Highly insulated (minimal windows) west, polar, and east walls and roofs.
+
+- Equator-side light collection and storage (thermal mass) features.
+
+- Extending the building dimension along the east/west axis.
+
+- Room placement to match daily use with daily temperature profiles.
+
+- Roof-angle glass is generally considered a "no-no".
+
+---
+
+# Passive Solar Home **Form**: Example
+
+<img width="800" height="480" src="http://ecobrooklyn.com/wp-content/uploads/2013/04/earthship-schematic-1.jpeg"></img>
+
+---
+
+# Passive Solar Home **Function**
+
+The ambient environmental conditions are a multivariate time series:
+<code class="javascript remark-code" style="font-size: 12px;">
   <div class="remark-code-line">var amb_cond1 = {'time': 'early',  'temp': '34F', '% hmdty': '99%', 'precip': 'rain', 'UV': 0};</div>
   <div class="remark-code-line">var amb_cond2 = {'time': 'middle', 'temp': '33F', '% hmdty': '99%', 'precip': 'rain', 'UV': 0};</div>
   <div class="remark-code-line">var amb_cond3 = {'time': 'late',   'temp': '32F', '% hmdty': '99%', 'precip': 'snow', 'UV': 0};</div>
@@ -64,22 +85,28 @@ The ambient environmental conditions are a multi-variate time series:
 </code>
 
 As are the desired interior conditions:
-<code class="remark-code" style="font-size: 12px;">
+<code class="javascript remark-code" style="font-size: 12px;">
   <div class="remark-code-line">var des_cond1 = {'time': 'early',  'temp': '72F', '% hmdty': '50%', 'precip': 'no thanks', 'UV': 'some'};</div>
   <div class="remark-code-line">var des_cond2 = {'time': 'middle', 'temp': '72F', '% hmdty': '50%', 'precip': 'no thanks', 'UV': 'some'};</div>
   <div class="remark-code-line">var des_cond3 = {'time': 'late',   'temp': '72F', '% hmdty': '50%', 'precip': 'no thanks', 'UV': 'some'};</div>
 var desired_conditions = [des_cond1, des_cond2, des_cond3];
 </code>
 
+But, we'll focus on the relationship between UV and light. Precipitation is easy. I'm punting on humidity for this talk.
+
+---
+
+# Passive Solar Home **Function**
+
 This space should act as a function that takes a stream of ambient environmental conditions and "returns" a stream of desireable interior environmental conditions. 
 
-```
+```javascript
 function climateConditioning(ambient_conditions) {
-  return physicalProcesses(passive_solar_home, desired_conditions);
+  return physicalProcesses(ambient_conditions, passive_solar_home);
 }
 ```
 
-Further, ideally, it can do this without any additional energy input, hence the term "passive", unlike most homes that an active refrigeration cycle going much of the time, e.g. heat pump and/or AC.
+Further, ideally, it can do this without any additional energy input, hence the term *passive*, unlike most homes with the active use of mechanical and electrical devices to control temperature.
 
 ---
 
@@ -87,11 +114,72 @@ Further, ideally, it can do this without any additional energy input, hence the 
 
 Strictly speaking, being a passive solar house would necessitate that there be __ZERO__ energy input.
 
-Drawing the blinds, shutting shutters, and opening vents could all be considered energy inputs. But, I believe that in practice, it tends to be limited to things that draw __mechanized power__ for substantial time durations. I will allow for tiny modifications given that some of them are likely to have 10, 100, 1000x energy savings multipliers.
+Energy to control dampers, shutters, night insulation, and other devices that enhance solar energy collection, storage, and use could all be considered energy inputs. But, I believe that in practice, it tends to be limited to things that draw __mechanized power__ for substantial time durations. I will allow for tiny modifications given that some of them are likely to have potentially massive energy savings multipliers.
 
-This means I'm really allowing my `passive_solar_home` to be a __time-varying object__.
+This means I'm really allowing my passive solar home to be a (slightly) __time-varying object__.
 
 ---
+
+# Time-Varying Features
+
+- Vents to ambient
+
+- Vents between the atrium and the interior comfort zone to facilitate indirect solar gain
+
+- Window shading
+
+- Window insulation
+
+---
+
+<img height="630" src="./code.png"></img>
+
+---
+
+# Passive Solar Home **Form**: Example
+
+<div class="center">
+  <img width="800" height="480" src="http://ecobrooklyn.com/wp-content/uploads/2013/04/earthship-schematic-1.jpeg"></img>
+</div>
+
+---
+
+# Compost Heating
+
+While I have thinking about the "mass story", I'd like to divert you to think about compost heating.
+
+Search "[Jean Paine](https://en.wikipedia.org/wiki/Jean_Pain#Jean_Pain_Composting)" or "Compost Power" (an entity in Vermont) for good background information.
+
+Compost heating is just "aerobic decomposition".
+
+<img height="300" width="300" src="http://smallfarms.cornell.edu/files/2012/09/Cecil-mound-beginning-2iyhxq5.jpg"></img>
+
+---
+
+# Compost Heating "Chemistry"
+
+```
+carbon biomass + nitrogren biomass + ambient bacteria = heat + C02 + rich soil
+```
+
+
+I find it highly fascinating because:
+
+- It has a good mass cycle story: e.g. biomass -> soil -> biomass -> soil
+
+- The resulting heat profile of a 40 cubic yard pile provides about just the right amount of energy for a tiny energy efficient home's hot water and home heating needs (I'll spare you the calcs, but it's in the ballbark of 20000 btu / (hour vs day?)
+
+- The temperature profile (temperature vs. time) of the compost pile offsets the temperature profile of the ambient winter temperatures nicely, e.g. somewhat its mirror or inverse.
+
+- The resulting soil is available in early spring just in time for the growing season.
+
+---
+
+# Thank You for Your Attention!!
+
+---
+
+<!--
 
 # More on Desired Conditions
 
@@ -103,35 +191,38 @@ The desireable conditions (from informal personal experience) tend to look somet
 - Precipitation = nope, thanks for asking though
 - UV = natural light?
 
-Of these precipitation is not particularly interesting, your roof simply needs to work. Humidity is complicated and I'm punting on it at the moment. This leaves UV and temperature.
-
----
+Of these, precipitation is not particularly interesting, your roof simply needs to work. Humidity is complicated and I'm punting on it at the moment. This leaves UV and temperature.
 
 # Reducing
 
 Therefore, it can now be said that
 
-> This space should act as a function that takes a stream of ambient temperatures and UV conditions and "returns" a desireable stream of internal temperatures.
+> This space should act as a function that takes a stream of ambient temperatures and UV conditions and "returns" a desireable stream of internal temperatures and UV conditions.
 
 The desired temperature is a constant 72F and the desired UV is just the ambient light conditions? 
 
 Do I have any amateur sleep scientists or anthropologist in the audience?
 
----
 
 # Slices in the "Stream"
 
-If we examine some datetimes throughout the calendar year, we see that our structure needs to do opposite things at times.
+If we examine some datetimes throughout the calendar year, we see that our structure needs to do different things in response to different conditions, e.g. the design must collect, store, and distribute solar energy in the form of heat in the winter and reject solar heat in the summer.
+
+
+# Slices in the "Stream"
+
+We can provide these function by adding form.
 
 - __Winter day__: allow maximum UV in to directly heat space AND to be stored in heat storage devices, minimize air exchange.
 
-- __Winter night__: allow the heat storage devices to dissipate heat to the space, minimize air exchange, minimize external heat exchange, e.g. draw the curtains / blinds.
+- __Winter night__: allow the heat storage devices to dissipate stored heat to the space, minimize air exchange, minimize external heat exchange, e.g. draw the curtains / blinds (there's no UV anyway).
 
-- __Summer day__: disallow any UV from heating the space or the heat storage devices, allow heat to passively vent out of the top.
+- __Summer day__: disallow most UV from heating the space OR the heat storage devices, allow heat to passively vent out of the top.
 
 - __Summer night__: continue to allow heat to vent out the top, open low vents if ambient below interior and interior above 72F.
 
----
+Of course we want enough air exchange for health purposes though.
+
 
 # Feature Specification
 
@@ -140,9 +231,6 @@ We need some kind of __windows/shutters/curtains__ to provide UV throttling || i
 We need heat storage devices.
 
 We need low and high vents to facilitate direct air transfer... but, we don't want unintended heat exchange (lots of insulation to guard against conduction losees and tightly sealed against convective losses).
-
-
----
 
 # Interconnectedness / Nonlinear Optimization
 
@@ -157,8 +245,11 @@ One can see that the above is a nonlinear optimization problem... and probably n
 Thus, I'll start to defer to some simpler rules of thumb...
 
 - Insulate the west, north, east, and roof heavily. (R25 on walls, R50 on the roof given today's energy prices)
+
 - Orient the long axis of the building east-west and put most of the glass on the south. (To maximize the ability to collect light/heat in the winter)
+
 - Nighttime insulation on the inside of the glass is a great idea.
+
 - The ability to be able to block light in the summer is also a great idea.
 
 Most CSNW employees live in a location where the heating-degree days >>> cooling-degree days, such that capturing light/heat during the day and then releasing it through the night / evening is a primary design concern.
@@ -180,33 +271,7 @@ var recovered_resources = (function reclaimHome(home) {
   return breakStuff(home);
 })(passive_solar_home);
 ```
-
----
-
-# Compost Heating
-
-While I have your attention thinking about the "mass story", I'd like to divert you to think about compost heating for a moment.
-
-Search "Jean Paine" or "Compost Power" (an entity in Vermont) for good background information.
-
-Compost heating is just "aerobic decomposition".
-
----
-
-# Compost Heating "Chemistry"
-
-```
-high-carbon biomass (think wood chips) + high-nitrogren biomass (think horse manure) + ambient bacteria = heat + C02 + rich soil
-```
-
-I find it highly fascinating because:
-- It has a good mass cycle story: e.g. biomass -> soil -> biomass -> soil
-- The resulting heat profile of a 40 cubic yard pile provides about just the right amount of energy for a tiny energy efficient home's hot water and home heating needs (I'll spare you the calcs, but it's in the ballbark of 20000 btu / (hour vs day?)
-- The temperature profile (time-axis) of the compost pile offsets the temperature profile of the ambient winter temperatures nicely.
-- The resulting soil is available in early spring just in time for the growing season.
-
-Ok, that's all folks.
-
+-->
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
