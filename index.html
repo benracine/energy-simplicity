@@ -165,8 +165,8 @@ This means I'm really allowing my passive solar home to be a (slightly) __time-v
 
 Compost heating is "just" aerobic decomposition:
 
-<span style="font-size: 16px">
-$$biomass (C/N) + microbes + air + H_{2}0 = heat + CO^{2} + topsoil$$
+<span style="font-size: 16px; font-style: italic">
+biomass (C/N) + microbes + air + H20 = heat + CO2 + topsoil
 </span>
 
 <img height="300" width="300" src="./cornell.jpg"></img>
@@ -356,12 +356,15 @@ var recovered_resources = (function reclaimHome(home) {
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <!--
+    <script src="./mathjax.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    -->
     <script>
       var slideshow = remark.create();
 
       // Setup MathJax
+      /*
       MathJax.Hub.Config({
           tex2jax: {
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
@@ -374,6 +377,8 @@ var recovered_resources = (function reclaimHome(home) {
       });
 
       MathJax.Hub.Configured();
+      */
+
 
     </script>
   </body>
