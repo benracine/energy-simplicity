@@ -29,9 +29,7 @@ class: center, middle
 [Presentation Source Repo](https://github.com/benracine/energy-simplicity) 
 
 <br>
-<br>
-
-<img src="./ps.jpg">
+<img width="400" src="./ps.jpg">
 
 ---
 
@@ -105,11 +103,13 @@ But, we'll focus on the relationship between UV and light. Precipitation is easy
 
 This space should act as a function that takes a stream of ambient environmental conditions and "returns" a stream of desireable interior environmental conditions. 
 
+<!--
 ```javascript
 function climateConditioning(ambient_conditions) {
   return physicalProcesses(ambient_conditions, passive_solar_home);
 }
 ```
+-->
 
 Further, ideally, it can do this without any additional energy input, hence the term *passive*, unlike most homes with the active use of mechanical and electrical devices to control temperature.
 
@@ -141,62 +141,100 @@ This means I'm really allowing my passive solar home to be a (slightly) __time-v
 
 ---
 
-# Passive Solar Home **Form**: Example
+# Winter Day
 
-<div class="center">
-  <img width="800" height="480" src="http://ecobrooklyn.com/wp-content/uploads/2013/04/earthship-schematic-1.jpeg"></img>
-</div>
+<img src="./winterd-day.jpg">
+
+---
+
+# Winter Night
+
+<img src="./winter-night.jpg">
+
+---
+
+# Summer Day
+
+<img src="./summer-venting.jpg">
 
 ---
 
 # Compost Heating
 
-While I have thinking about the "mass story", I'd like to divert you to think about compost heating.
+"[Jean Paine](https://en.wikipedia.org/wiki/Jean_Pain#Jean_Pain_Composting)" or "[Compost Power](http://compostpower.org/)" (an entity in Vermont) are both good for background information.
 
-Search "[Jean Paine](https://en.wikipedia.org/wiki/Jean_Pain#Jean_Pain_Composting)" or "Compost Power" (an entity in Vermont) for good background information.
+Compost heating is just "aerobic decomposition":
 
-Compost heating is just "aerobic decomposition".
+<span style="font-size: 16px">
+  carbon biomass + nitrogen biomass + microbes + air + water = heat + C02 + great soil
+</span>
 
 <img height="300" width="300" src="http://smallfarms.cornell.edu/files/2012/09/Cecil-mound-beginning-2iyhxq5.jpg"></img>
 
 ---
 
-# Compost Heating "Chemistry"
-
-```
-carbon biomass + nitrogren biomass + free bacteria + air + water = heat + C02 + rich soil
-```
+# Compost Heating
 
 I find it highly fascinating because:
 
-- It has a good mass cycle story: e.g. biomass -> soil -> biomass -> soil
+- It has a good "mass cycle story": e.g. biomass -> soil -> biomass -> soil
 
-- The resulting heat profile of a 40 cubic yard pile provides about just the right amount of energy for a tiny energy efficient home's hot water and home heating needs (I'll spare you the calcs, but it's in the ballbark of 20000 btu / hour.
+- The resulting heat profile of a 40 cubic yard pile provides about just the right amount of energy for a tiny energy efficient home's hot water and heating needs... e.g. 20,000 btu / hr (if memory serves me).
 
 - The temperature profile (temperature vs. time) of the compost pile offsets the temperature profile of the ambient winter temperatures nicely, e.g. somewhat its mirror or inverse.
 
 - The resulting soil is available in early spring just in time for the growing season.
 
-- The nitrogen biomass needs to be properly dealt with in order to not release methane, which is 25x worse than C02 as a greenhouse gas.
+---
+
+# Compost Heating
+
+It DOES release C02, but:
+
+- The nitrogen biomass sources should be properly dealt with in order to not release methane (which is 25x worse than C02 as a greenhouse gas), as commonly occurs in our landfills.
+
+- The carbon biomass sources did absorb C02 during their growth.
+
+So, I think it's a great home / personal solution, but still researching the cycle to decide whether I think it scales well.
+
+---
+
+# Compost Heating
+
+"Parameters":
+
+- C/N ratio (woody to leafy/manure ratio)
+- Humidity
+  - Microbes need water
+  - Microbes need air, and water can block air
+  - Too dry and it can actually [light on fire](https://www.youtube.com/watch?v=BZhuF0hK2EE)
+- Air
+  - Passive vs. active (forced air vs. turning over)
+  - Static allows for fungi growth which may offer additional value to the soil
+- Cellulose and lignins
+  - Just enough and the pile provides a nice slow burn (cellulose and lignins slow the availability of carbon to microbial oxidation).
+  - Too much and it is deemed a [rot resistant wood species](http://www.garden.org/articles/articles.php?q=show&id=977) and the process won't start.
 
 ---
 
 # My "Solar Powered" Truck
 
-Ok, ok... auxiliary solar powered...
+Ok, ok... **auxiliary** solar powered...
 
 The [resource](http://www.builditsolar.com/Projects/Vehicles/PMRV/Electrical/Electrical.htm) I used as a guide.
 
 Specs:
-- 200 amp-hours of battery storage
+- 200 amp-hours of battery storage 
 - 1250 watts of 120V-AC
 - 285 watts of solar panel capacity
 
 Components:
-- [Charge controller](http://www.midnitesolar.com/productPhoto.php?product_ID=530&productCatName=Charge%20Controllers%20-%20KID&productCat_ID=43&sortOrder=1&act=p)
-- [Inverter](http://www.tripplite.com/inverter-charger-1250w-automatic-transfer-switching-2-outlets~APS1250/)
-- [Solar panel](https://www.platt.com/platt-electric-supply/Solar-Modules-Monocrystalline/SolarWorld/SW285M33MM/product.aspx?zpid=148439)
-- [Wire sizing guide](http://www.cerrowire.com/ampacity-charts)
+- [Solar panel](https://www.platt.com/platt-electric-supply/Solar-Modules-Monocrystalline/SolarWorld/SW285M33MM/product.aspx?zpid=148439) ->
+- [Charge controller](http://www.midnitesolar.com/productPhoto.php?product_ID=530&productCatName=Charge%20Controllers%20-%20KID&productCat_ID=43&sortOrder=1&act=p) ->
+- [Inverter](http://www.tripplite.com/inverter-charger-1250w-automatic-transfer-switching-2-outlets~APS1250/) ->
+- (2) 6V Costco Golf Cart Batteries in series 
+
+[Wire sizing guide](http://www.cerrowire.com/ampacity-charts)
 
 ---
 
@@ -212,13 +250,9 @@ Components:
 
 ---
 
-# My "Solar Powered" Truck
+# Thank You for Your Time and Attention!!
 
 <img src="./rinse-and-repeat.jpg" width="650">
-
----
-
-# Thank You for Your Attention!!
 
 <!--
 
